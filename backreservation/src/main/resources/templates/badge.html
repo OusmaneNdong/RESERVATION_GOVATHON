@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="fr" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <title>Badge Govathon 2025</title>
+    <style>
+        @page {
+            size: 360px 570px;
+            margin: 0; /* Pas de marge autour de la page */
+        }
+
+        html, body {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            background: none !important;
+        }
+
+        /* Card wrapper */
+        .card {
+            width: 360px;
+            height: 570px;
+            border-radius: 12px;
+            padding: 8px;
+            border: 1px solid black;
+            text-align: center;
+            box-sizing: border-box;
+            overflow: hidden;
+            margin: 0 auto;
+            background : #32C934;
+        }
+
+        /* Top band */
+        .top-band td {
+            margin-top: 10px;
+            vertical-align: middle;
+        }
+
+
+        .top-band {
+            margin-top: 15px;
+        }
+        .title {
+            color: #131413;
+            font-weight: 700;
+            font-size: 12px;
+            text-transform: uppercase;
+        }
+
+        /* QR zone */
+        .qrcode {
+            margin: 4px auto;
+            margin-top: 20px;
+            width: 250px;
+            height: 250px;
+            border: 2px solid #0a7d12;
+            border-radius: 8px;
+            padding: 2px;
+            background: #ffffff;
+            box-sizing: border-box;
+        }
+        .qrcode img {
+            display: block;
+            width: 100%;
+            height: 100%;
+            border-radius: 6px;
+        }
+
+        /* Contacts */
+        .contacts {
+            margin: 4px 0;
+            margin-top: 10px;
+            font-size: 14px;
+            color: #2c3e50;
+            line-height: 1.2;
+        }
+        .contacts .line {
+            margin: 10px 0;
+        }
+
+        /* Sponsors */
+        .sponsors-wrapper {
+            margin: 4px 0;
+             margin-top: 30px;
+            overflow-x: auto;
+            background: #FFFFFF;
+            padding: 20px
+            border-radius: 8px;
+            width: 100%
+        }
+        .sponsors-wrapper table {
+            width: 100%;
+            table-layout: fixed;
+        }
+        .sponsors-wrapper img {
+            display: block;
+            max-width: 80px;
+            max-height: 40px;
+            margin: 0 auto;
+            object-fit: contain;
+            border-radius: 4px;
+        }
+
+        /* Footer line */
+        .footer-line td {
+            height: 4px;
+        }
+        .footer-line {
+            margin-top: 24px;
+        }
+
+        /* Remove default margins for HR */
+        hr {
+            margin: 4px 0;
+             margin-top: 30px;
+            border: none;
+            border-top: 1px solid #dedede;
+            background: linear-gradient(green, yellow, red);
+            height: 6px;
+        }
+
+        .top-band img {
+            max-width: 100%;
+            max-height: 40px;
+            display: block;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+<body>
+<div class="card">
+
+    <!-- Top band: logos + titre -->
+    <div class="top-band">
+        <table width="100%" cellpadding="0" cellspacing="0">
+            <tr>
+                <td width="15%" align="left">
+                    <img th:src="'data:image/png;base64,' + ${ministerLogo}" alt="Ministère" />
+                </td>
+                <td width="70%" align="center">
+                    <span class="title">BADGE D’ACCÈS – GRANDE FINALE GOVATHON 2025</span>
+                </td>
+                <td width="15%" align="right">
+                    <img th:src="'data:image/png;base64,' + ${mctnLogo}" alt="MCTN" />
+                </td>
+            </tr>
+        </table>
+    </div>
+
+    <hr />
+
+    <!-- QR Code -->
+    <div class="qrcode">
+        <img th:src="'data:image/png;base64,' + ${qrcode}" alt="QR Code" />
+    </div>
+
+    <!-- Contacts -->
+    <div class="contacts">
+        <div class="line"><strong>Email:</strong> <span th:text="${email}">email@example.com</span></div>
+        <div class="line"><strong>Téléphone:</strong> <span th:text="${telephone}">+221 77 000 00 00</span></div>
+    </div>
+
+    <!-- Sponsors -->
+    <div class="sponsors-wrapper">
+        <table cellpadding="0" cellspacing="0">
+            <tr>
+                <td align="center"><img th:src="'data:image/png;base64,' + ${s1}" alt="Sponsor 1" /></td>
+                <td align="center"><img th:src="'data:image/png;base64,' + ${s2}" alt="Sponsor 2" /></td>
+                <td align="center"><img th:src="'data:image/png;base64,' + ${s3}" alt="Sponsor 3" /></td>
+                <td align="center"><img th:src="'data:image/png;base64,' + ${s4}" alt="Sponsor 4" /></td>
+                <td align="center"><img th:src="'data:image/png;base64,' + ${s5}" alt="Sponsor 5" /></td>
+            </tr>
+        </table>
+    </div>
+
+    <!-- Footer line -->
+    <table class="footer-line" cellpadding="0" cellspacing="0" width="100%" style="border-collapse: collapse;">
+        <tr>
+            <td style="background-color: green; width:33%;"></td>
+            <td style="background-color: yellow; width:34%;"></td>
+            <td style="background-color: red; width:33%;"></td>
+        </tr>
+    </table>
+
+</div>
+</body>
+</html>

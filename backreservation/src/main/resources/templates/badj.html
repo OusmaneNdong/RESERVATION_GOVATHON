@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="fr" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Badge Govathon 2025</title>
+    <style>
+        body {
+          font-family: 'Poppins', sans-serif;
+          background: linear-gradient(135deg, #e8f5e9, #fffde7);
+          padding: 20px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+        }
+
+        .triangle-card {
+          position: relative;
+          overflow: hidden;
+          border-radius: 16px;
+          background: #fff;
+          width: 360px;
+          box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+          text-align: center;
+          box-sizing: border-box;
+          padding: 18px 25px;
+        }
+
+        .triangle-card::before {
+          content: "";
+          position: absolute;
+          inset: 0;
+          background: conic-gradient(
+            from 45deg,
+            #ffd700 90deg 180deg,
+            #00a859 0deg 90deg,
+            #00a859 0deg 90deg,
+            #007bff 270deg 360deg
+          );
+          z-index: 0;
+          opacity: 0.1;
+        }
+
+        .triangle-card > * {
+          position: relative;
+          z-index: 1;
+        }
+
+        .header {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+        }
+
+        .header img {
+          width: 55px;
+          height: auto;
+        }
+
+        .header h4 {
+          flex: 1;
+          font-size: 13px;
+          color: #0a7d12;
+          text-transform: uppercase;
+          letter-spacing: 0.5px;
+          margin: 0 8px;
+        }
+
+        hr {
+          border: none;
+          border-top: 1px solid #3c3b3b;
+          margin: 12px 0;
+        }
+
+        .qrcode {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          margin: 15px 0;
+        }
+
+        .qrcode img {
+          width: 220px;
+          height: 220px;
+          border: 2px solid #0a7d12;
+          border-radius: 10px;
+          padding: 4px;
+        }
+
+        .contact-section {
+          margin-top: 10px;
+          font-size: 13px;
+          color: #2c3e50;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          gap: 10px;
+        }
+
+        .contact-section i {
+          color: #088d11;
+        }
+
+        .sponsors-section {
+          background-color: #ffffff;
+          padding: 8px 12px;
+          border-radius: 10px;
+          box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+          margin: 15px 0;
+        }
+
+        .sponsors {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+        }
+
+        .sponsors img {
+          width: calc((100% - 4 * 12px) / 5);
+          max-height: 45px;
+          object-fit: contain;
+          transition: transform 0.3s ease;
+        }
+
+        .sponsors img:hover {
+          transform: scale(1.1);
+        }
+
+        .footer-line {
+          height: 5px;
+          background: linear-gradient(to right, #058221, #e3d111, #f01d1d);
+          border-radius: 3px;
+          margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="triangle-card">
+
+    <div class="header">
+        <img th:src="'data:image/png;base64,' + ${ministerLogo}" alt="Govathon Logo">
+        <h4>BADGE D’ACCÈS – GRANDE FINALE GOVATHON 2025</h4>
+        <img th:src="'data:image/png;base64,' + ${mctnLogo}" alt="MCTN">
+    </div>
+
+    <hr>
+
+    <div class="qrcode">
+        <img th:src="'data:image/png;base64,' + ${qrcode}" alt="QR Code">
+    </div>
+
+    <div class="contact-section">
+        <span><i>📞</i> <span th:text="${telephone}">77 403 33 47</span></span>
+        <span>|</span>
+        <span><i>✉️</i> <span th:text="${email}">infrastructure@gmail.com</span></span>
+    </div>
+
+    <div class="sponsors-section">
+        <div class="sponsors">
+            <img th:src="'data:image/png;base64,' + ${s1}" alt="Logo 1">
+            <img th:src="'data:image/png;base64,' + ${s2}" alt="Logo 2">
+            <img th:src="'data:image/png;base64,' + ${s3}" alt="Logo 3">
+            <img th:src="'data:image/png;base64,' + ${s4}" alt="Logo 4">
+            <img th:src="'data:image/png;base64,' + ${s5}" alt="Logo 5">
+        </div>
+    </div>
+
+    <div class="footer-line"></div>
+
+</div>
+
+</body>
+</html>
